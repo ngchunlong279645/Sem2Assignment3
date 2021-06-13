@@ -49,38 +49,26 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
-		setTitle("HEA UUM A202");
+		setTitle("VolunteerTeacherOrganisation");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1200, 600); //set for 0,0,1400,800
+		setBounds(0, 0, 915, 514); //set for 0,0,1400,800
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(240, 230, 140));
-		panel.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(244, 164, 96)));
-		panel.setBounds(0, 11, 1350, 700);
+		panel.setBackground(new Color(255, 165, 0));
+		panel.setBorder(null);
+		panel.setBounds(0, 0, 899, 475);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(null);
-		panel_1.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(244, 164, 96)));
-		panel_1.setBackground(new Color(240, 230, 140));
-		panel_1.setBounds(197, 39, 902, 53);
-		panel.add(panel_1);
-		
-		JLabel TitleLabel = new JLabel("ADD DROP SYSTEM");
-		TitleLabel.setFont(new Font("Tahoma", Font.BOLD, 40));
-		TitleLabel.setBounds(257, 11, 546, 31);
-		panel_1.add(TitleLabel);
-		
 		JPanel panel_1_2 = new JPanel();
 		panel_1_2.setLayout(null);
-		panel_1_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(244, 164, 96)));
+		panel_1_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
 		panel_1_2.setBackground(new Color(240, 230, 140));
-		panel_1_2.setBounds(82, 158, 214, 53);
+		panel_1_2.setBounds(401, 139, 214, 53);
 		panel.add(panel_1_2);
 		
 		JLabel UserNameLabel = new JLabel("User Name");
@@ -90,9 +78,9 @@ public class Login extends JFrame {
 		
 		JPanel panel_1_3 = new JPanel();
 		panel_1_3.setLayout(null);
-		panel_1_3.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(244, 164, 96)));
+		panel_1_3.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
 		panel_1_3.setBackground(new Color(240, 230, 140));
-		panel_1_3.setBounds(82, 240, 214, 53);
+		panel_1_3.setBounds(401, 240, 214, 53);
 		panel.add(panel_1_3);
 		
 		JLabel PasswordLabel = new JLabel("Password");
@@ -108,7 +96,7 @@ public class Login extends JFrame {
 				UserNameTextField.setText(userName);
 			}
 		});
-		UserNameTextField.setBounds(348, 158, 265, 53);
+		UserNameTextField.setBounds(642, 139, 243, 53);
 		panel.add(UserNameTextField);
 		UserNameTextField.setColumns(10);
 		
@@ -121,7 +109,7 @@ public class Login extends JFrame {
 			}
 		});
 		PasswordTextField.setColumns(10);
-		PasswordTextField.setBounds(348, 240, 265, 53);
+		PasswordTextField.setBounds(642, 240, 243, 53);
 		panel.add(PasswordTextField);
 		
 		JButton LoginButton = new JButton("LOGIN");
@@ -153,7 +141,7 @@ public class Login extends JFrame {
 			}
 		});
 		LoginButton.setFont(new Font("Tahoma", Font.BOLD, 23));
-		LoginButton.setBounds(426, 401, 187, 53);
+		LoginButton.setBounds(668, 401, 187, 53);
 		panel.add(LoginButton);
 		
 		JButton ResetButton = new JButton("RESET");
@@ -164,14 +152,14 @@ public class Login extends JFrame {
 			}
 		});
 		ResetButton.setFont(new Font("Tahoma", Font.BOLD, 23));
-		ResetButton.setBounds(108, 401, 187, 53);
+		ResetButton.setBounds(439, 401, 187, 53);
 		panel.add(ResetButton);
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setLayout(null);
-		panel_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(244, 164, 96)));
+		panel_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
 		panel_2.setBackground(new Color(240, 230, 140));
-		panel_2.setBounds(82, 318, 214, 53);
+		panel_2.setBounds(401, 318, 214, 53);
 		panel.add(panel_2);
 		
 		JLabel lblSelectUserType = new JLabel("Select User Type");
@@ -183,7 +171,29 @@ public class Login extends JFrame {
 		user.setFont(new Font("Tekton Pro", Font.BOLD, 20));
 		user.setModel(new DefaultComboBoxModel(new String[] {"Admin", "User"}));
 		user.setToolTipText("");
-		user.setBounds(348, 318, 265, 53);
+		user.setBounds(642, 318, 243, 53);
 		panel.add(user);
+		
+		JLabel TitleLabel = new JLabel("SOL 24/7\r\n ORGANISATION");
+		TitleLabel.setBounds(417, 40, 468, 59);
+		panel.add(TitleLabel);
+		TitleLabel.setForeground(new Color(255, 255, 255));
+		TitleLabel.setFont(new Font("Tekton Pro", Font.BOLD, 40));
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(255, 69, 0));
+		panel_1.setBounds(0, 0, 391, 475);
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon(Login.class.getResource("/IMAGE/SOL24.PNG")));
+		lblNewLabel.setBounds(78, 24, 159, 178);
+		panel_1.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/IMAGE/Capture.PNG")));
+		lblNewLabel_1.setBounds(0, 223, 391, 252);
+		panel_1.add(lblNewLabel_1);
 	}
 }

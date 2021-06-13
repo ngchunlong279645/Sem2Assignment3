@@ -27,6 +27,9 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextPane;
 import javax.swing.JTextArea;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
 
 public class UserInterface extends JFrame  {
 
@@ -64,7 +67,8 @@ public class UserInterface extends JFrame  {
 	 * Create the frame.
 	 */
 	public UserInterface() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("User ");
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 864, 576);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -81,23 +85,25 @@ public class UserInterface extends JFrame  {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setLayout(null);
-		panel_1.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_1.setBackground(new Color(255, 228, 225));
+		panel_1.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(0, 100, 0)));
+		panel_1.setBackground(new Color(144, 238, 144));
 		panel_1.setBounds(0, 0, 842, 508);
 		panel.add(panel_1);
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setLayout(null);
 		panel_7.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_7.setBackground(new Color(255, 228, 225));
+		panel_7.setBackground(new Color(220, 220, 220));
 		panel_7.setBounds(504, 122, 317, 135);
 		panel_1.add(panel_7);
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(10, 43, 297, 81);
+		scrollPane_1.setBounds(8, 46, 301, 81);
 		panel_7.add(scrollPane_1);
 		
 		table_1 = new JTable();
+		table_1.setFont(new Font("Tekton Pro", Font.PLAIN, 12));
+		table_1.setBackground(new Color(255, 240, 245));
 		table_1.setModel(new DefaultTableModel(
 			new Object[][] {
 				{new Integer(1), "World Book and Copyright Day", "18/6/2021"},
@@ -118,6 +124,9 @@ public class UserInterface extends JFrame  {
 		panel_7.add(lblNewLabel_2);
 		
 		JButton Eventbtn = new JButton("More Info");
+		Eventbtn.setFont(new Font("Tekton Pro", Font.BOLD, 15));
+		Eventbtn.setForeground(new Color(255, 255, 255));
+		Eventbtn.setBackground(new Color(0, 139, 139));
 		Eventbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Event event = new Event ();
@@ -131,7 +140,7 @@ public class UserInterface extends JFrame  {
 		JPanel panel_8 = new JPanel();
 		panel_8.setLayout(null);
 		panel_8.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_8.setBackground(new Color(255, 228, 225));
+		panel_8.setBackground(new Color(240, 230, 140));
 		panel_8.setBounds(504, 284, 317, 166);
 		panel_1.add(panel_8);
 		
@@ -141,59 +150,65 @@ public class UserInterface extends JFrame  {
 		panel_8.add(lblAdvetisement);
 		
 		JTextArea txtrAbove = new JTextArea();
+		txtrAbove.setFont(new Font("Tekton Pro Ext", Font.PLAIN, 15));
+		txtrAbove.setBackground(new Color(240, 230, 140));
 		txtrAbove.setText("-------------------------------------------------\r\n*  Above 2 tickets price will be\r\n    RM 2 per Unit\t   \r\n*  Above 5 tickets will be RM 1.50 \t\t\t   \r\n   +10% discount                                                    \r\n-------------------------------------------------");
-		txtrAbove.setBounds(10, 48, 297, 107);
+		txtrAbove.setBounds(10, 35, 297, 120);
 		panel_8.add(txtrAbove);
 		
-		JPanel panel_9 = new JPanel();
-		panel_9.setLayout(null);
-		panel_9.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_9.setBackground(new Color(255, 228, 225));
-		panel_9.setBounds(0, 461, 842, 47);
-		panel_1.add(panel_9);
-		
 		JLabel lblWhoAreWe = new JLabel("Who Are We ?");
-		lblWhoAreWe.setFont(new Font("Tekton Pro", Font.BOLD, 25));
-		lblWhoAreWe.setBounds(29, 95, 153, 47);
+		lblWhoAreWe.setForeground(new Color(128, 0, 128));
+		lblWhoAreWe.setFont(new Font("Tekton Pro", Font.BOLD | Font.ITALIC, 35));
+		lblWhoAreWe.setBounds(30, 86, 204, 47);
 		panel_1.add(lblWhoAreWe);
 		
 		JPanel panel_10 = new JPanel();
 		panel_10.setLayout(null);
-		panel_10.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_10.setBackground(new Color(255, 228, 225));
+		panel_10.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(0, 100, 0)));
+		panel_10.setBackground(new Color(60, 179, 113));
 		panel_10.setBounds(0, 0, 842, 84);
 		panel_1.add(panel_10);
 		
 		JLabel label = new JLabel("WELCOME TO SOL 24/7");
+		label.setForeground(new Color(255, 255, 255));
 		label.setBounds(137, 26, 522, 47);
 		panel_10.add(label);
 		label.setFont(new Font("Tekton Pro", Font.BOLD, 50));
 		
 		JTextArea txtrSolsIs = new JTextArea();
+		txtrSolsIs.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
+		txtrSolsIs.setForeground(new Color(255, 255, 255));
+		txtrSolsIs.setBackground(new Color(106, 90, 205));
 		txtrSolsIs.setText("SOLS 24/7 is a leading in-person and online education\r\nprovider for the poor. Starting out as experts in \r\nteaching English to those with zero or very basic \r\nEnglish proficiency, we have since branched out \r\nto encompass Employable English skills for school,\r\nuniversity, business purposes as well as becoming a \r\njob preparation and digital education provider.");
-		txtrSolsIs.setBounds(29, 133, 435, 135);
+		txtrSolsIs.setBounds(29, 122, 445, 146);
 		panel_1.add(txtrSolsIs);
 		
 		JLabel lblNewLabel = new JLabel("Vision");
-		lblNewLabel.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		lblNewLabel.setBounds(29, 296, 66, 25);
+		lblNewLabel.setForeground(new Color(0, 0, 139));
+		lblNewLabel.setFont(new Font("Tekton Pro", Font.BOLD | Font.ITALIC, 30));
+		lblNewLabel.setBounds(29, 296, 146, 25);
 		panel_1.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Mission");
-		lblNewLabel_1.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		lblNewLabel_1.setBounds(251, 298, 78, 20);
+		lblNewLabel_1.setForeground(new Color(47, 79, 79));
+		lblNewLabel_1.setFont(new Font("Tekton Pro", Font.BOLD | Font.ITALIC, 30));
+		lblNewLabel_1.setBounds(287, 291, 130, 34);
 		panel_1.add(lblNewLabel_1);
 		
 		JTextArea txtrSolsEnvisions = new JTextArea();
-		txtrSolsEnvisions.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		txtrSolsEnvisions.setText("SOLS 24/7 envisions that\r\n people from all communities \r\n\u2013 regardless of race, religion \r\nor gender \u2013 will have access to \r\neducation and social \r\nempowerment services, resulting \r\nin developed societies \r\nwith equal opportunities for all.");
-		txtrSolsEnvisions.setBounds(29, 320, 202, 130);
+		txtrSolsEnvisions.setForeground(new Color(255, 255, 255));
+		txtrSolsEnvisions.setBackground(new Color(102, 205, 170));
+		txtrSolsEnvisions.setFont(new Font("Tekton Pro", Font.BOLD, 16));
+		txtrSolsEnvisions.setText("SOLS 24/7 envisions that people\r\nfrom all communities \u2013 regardless\r\nof race, religion or gender \u2013 will \r\nhave access to education and \r\nsocial empowerment services, \r\nresulting in developed societies \r\nwith equal opportunities for all.");
+		txtrSolsEnvisions.setBounds(29, 320, 217, 165);
 		panel_1.add(txtrSolsEnvisions);
 		
 		JTextArea txtrOurMissionIs = new JTextArea();
-		txtrOurMissionIs.setFont(new Font("Monospaced", Font.PLAIN, 10));
-		txtrOurMissionIs.setText("Our mission is to serve, \r\neducate & empower the \r\nbottom 40% of the population \r\nwith FREE education, personal \r\ndevelopment & employment support.");
-		txtrOurMissionIs.setBounds(251, 320, 217, 84);
+		txtrOurMissionIs.setForeground(new Color(255, 255, 255));
+		txtrOurMissionIs.setBackground(new Color(221, 160, 221));
+		txtrOurMissionIs.setFont(new Font("Tekton Pro", Font.BOLD, 15));
+		txtrOurMissionIs.setText("Our mission is to \r\nserve, educate &\r\nempower the \r\nbottom 40% of the\r\npopulation with \r\nFREE education, \r\npersonal development \r\n& employment support.");
+		txtrOurMissionIs.setBounds(287, 319, 187, 166);
 		panel_1.add(txtrOurMissionIs);
 		
 		JPanel panel_2 = new JPanel();
@@ -446,60 +461,72 @@ public class UserInterface extends JFrame  {
 		
 		JPanel panel_12 = new JPanel();
 		panel_12.setLayout(null);
-		panel_12.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(95, 158, 160)));
-		panel_12.setBackground(new Color(255, 228, 225));
+		panel_12.setBorder(new MatteBorder(15, 15, 15, 15, (Color) new Color(255, 153, 0)));
+		panel_12.setBackground(new Color(255, 215, 0));
 		panel_12.setBounds(0, 0, 842, 508);
 		panel_11.add(panel_12);
 		
 		JLabel lblName_1 = new JLabel("Name");
-		lblName_1.setBounds(53, 244, 46, 14);
+		lblName_1.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
+		lblName_1.setBounds(53, 251, 70, 14);
 		panel_12.add(lblName_1);
 		
 		JLabel lblAmount = new JLabel("Amount");
-		lblAmount.setBounds(53, 297, 46, 14);
+		lblAmount.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
+		lblAmount.setBounds(53, 276, 70, 17);
 		panel_12.add(lblAmount);
 		
 		donateName = new JTextField();
-		donateName.setBounds(133, 241, 86, 20);
+		donateName.setFont(new Font("Tekton Pro", Font.BOLD, 14));
+		donateName.setBounds(133, 248, 86, 20);
 		panel_12.add(donateName);
 		donateName.setColumns(10);
 		
 		donateAmount = new JTextField();
-		donateAmount.setBounds(133, 294, 86, 20);
+		donateAmount.setFont(new Font("Tekton Pro", Font.BOLD, 14));
+		donateAmount.setBounds(133, 274, 86, 20);
 		panel_12.add(donateAmount);
 		donateAmount.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Donate");
+		btnNewButton.setBackground(new Color(152, 251, 152));
+		btnNewButton.setForeground(new Color(0, 0, 0));
+		btnNewButton.setFont(new Font("Tekton Pro Ext", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showMessageDialog(null, "Thank You For Your Donation");
 				
 			}
 		});
-		btnNewButton.setBounds(147, 364, 89, 23);
+		btnNewButton.setBounds(143, 305, 76, 23);
 		panel_12.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Clear");
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(128, 128, 128));
+		btnNewButton_1.setFont(new Font("Tekton Pro", Font.BOLD, 13));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				donateName.setText("");
 				donateAmount.setText("");
 			}
 		});
-		btnNewButton_1.setBounds(48, 364, 89, 23);
+		btnNewButton_1.setBounds(53, 304, 70, 23);
 		panel_12.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Print Receipt");
+		btnNewButton_2.setBackground(new Color(135, 206, 250));
+		btnNewButton_2.setFont(new Font("Tekton Pro", Font.BOLD, 13));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textReceipt.append("==================\n");
-				textReceipt.append("      RECEIPT     \n");
-				textReceipt.append("==================\n");
-				textReceipt.append("Name: "+donateName.getText()+"\n");
-				textReceipt.append("Amount: "+donateAmount.getText()+"\n");
+				textReceipt.append("===============\n");
+				textReceipt.append("____RECEIPT____\n");
+				textReceipt.append("===============\n");
+				textReceipt.append("Name  :   "+donateName.getText()+"\n");
+				textReceipt.append("Amount:   RM"+donateAmount.getText()+"\n");
 			}
 		});
-		btnNewButton_2.setBounds(260, 364, 111, 23);
+		btnNewButton_2.setBounds(268, 364, 111, 23);
 		panel_12.add(btnNewButton_2);
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
@@ -507,6 +534,13 @@ public class UserInterface extends JFrame  {
 		panel_12.add(scrollPane_2);
 		
 		textReceipt = new JTextArea();
+		textReceipt.setFont(new Font("Tekton Pro", Font.PLAIN, 13));
+		textReceipt.setBackground(SystemColor.scrollbar);
 		scrollPane_2.setViewportView(textReceipt);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(UserInterface.class.getResource("/IMAGE/header_NGOhub-Campaign-Header.jpg")));
+		lblNewLabel_3.setBounds(21, 20, 822, 467);
+		panel_12.add(lblNewLabel_3);
 	}
 }
