@@ -329,7 +329,7 @@ public class UserInterface extends JFrame  {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
 				Calculation cal = new Calculation();
 				double totalPrice=cal.totalPrice(Integer.parseInt( (String) price.getSelectedItem()), Integer.parseInt( quantity.getText()));
-				
+				double discount=Integer.parseInt( (String) price.getSelectedItem())*Integer.parseInt( quantity.getText())-totalPrice;
 				
 				model.addRow(new Object[]{
 						name.getText(),
@@ -338,6 +338,7 @@ public class UserInterface extends JFrame  {
 						event.getSelectedItem(),
 						price.getSelectedItem(),
 						quantity.getText(),	
+						discount,
 						totalPrice,
 				});
 				
@@ -492,7 +493,7 @@ public class UserInterface extends JFrame  {
 			new Object[][] {
 			},
 			new String[] {
-				"Name", "Age", "Gender", "Event", "Price", "Quantity", "Total Price"
+				"Name", "Age", "Gender", "Event", "Price", "Quantity", "Discount", "Total Price"
 			}
 		));
 		scrollPane.setViewportView(table);
