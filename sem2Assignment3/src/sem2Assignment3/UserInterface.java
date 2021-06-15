@@ -175,6 +175,20 @@ public class UserInterface extends JFrame  {
 		panel_10.add(label);
 		label.setFont(new Font("Tekton Pro", Font.BOLD, 50));
 		
+		JButton btnNewButton_3 = new JButton("Log Out");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Login frame = new Login();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		btnNewButton_3.setForeground(new Color(255, 255, 255));
+		btnNewButton_3.setBackground(new Color(250, 128, 114));
+		btnNewButton_3.setFont(new Font("Tekton Pro", Font.BOLD, 15));
+		btnNewButton_3.setBounds(743, 50, 89, 23);
+		panel_10.add(btnNewButton_3);
+		
 		JTextArea txtrSolsIs = new JTextArea();
 		txtrSolsIs.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
 		txtrSolsIs.setForeground(new Color(255, 255, 255));
@@ -336,7 +350,7 @@ public class UserInterface extends JFrame  {
 				}
 		});
 		button.setFont(new Font("Tahoma", Font.BOLD, 14));
-		button.setBounds(10, 23, 143, 38);
+		button.setBounds(10, 23, 135, 38);
 		panel_5.add(button);
 		
 		JButton button_1 = new JButton("RESET");
@@ -351,7 +365,7 @@ public class UserInterface extends JFrame  {
 			}
 		});
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		button_1.setBounds(163, 23, 115, 38);
+		button_1.setBounds(155, 23, 94, 38);
 		panel_5.add(button_1);
 		
 		JButton button_2 = new JButton("DELETE");
@@ -372,7 +386,7 @@ public class UserInterface extends JFrame  {
 			}
 		});
 		button_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		button_2.setBounds(436, 23, 105, 38);
+		button_2.setBounds(468, 23, 94, 38);
 		panel_5.add(button_2);
 		
 		JButton button_3 = new JButton("EXIT");
@@ -386,7 +400,7 @@ public class UserInterface extends JFrame  {
 			}
 		});
 		button_3.setFont(new Font("Tahoma", Font.BOLD, 14));
-		button_3.setBounds(676, 23, 105, 38);
+		button_3.setBounds(687, 23, 94, 38);
 		panel_5.add(button_3);
 		
 		JButton button_4 = new JButton("PRINT");
@@ -400,11 +414,11 @@ public class UserInterface extends JFrame  {
 			}
 		});
 		button_4.setFont(new Font("Tahoma", Font.BOLD, 14));
-		button_4.setBounds(299, 23, 115, 38);
+		button_4.setBounds(364, 23, 94, 38);
 		panel_5.add(button_4);
 		
 		JButton button_5 = new JButton("UPLOAD");
-		button_5.setBounds(551, 23, 115, 38);
+		button_5.setBounds(572, 23, 105, 38);
 		panel_5.add(button_5);
 		button_5.addActionListener(new ActionListener() {
 			@Override
@@ -433,6 +447,34 @@ public class UserInterface extends JFrame  {
 			}
 		});
 		button_5.setFont(new Font("Tahoma", Font.BOLD, 14));
+		
+		JButton btnUpdate = new JButton("UPDATE");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				DefaultTableModel model = (DefaultTableModel)table.getModel();
+				Calculation cal = new Calculation();
+				double totalPrice=cal.totalPrice(Integer.parseInt( (String) price.getSelectedItem()), Integer.parseInt( quantity.getText()));
+				int i = table.getSelectedRow();
+			    if(i>=0) //if single row is selected than update
+			    {
+			    	model.setValueAt(name.getText(),i,0);
+			    	model.setValueAt(age.getText(),i,1);
+			    	model.setValueAt(gender.getSelectedItem(),i,2);
+			    	model.setValueAt(event.getSelectedItem(),i,3);
+			    	model.setValueAt(price.getSelectedItem(),i,4);
+			    	model.setValueAt(quantity.getText(),i,5);
+			    	model.setValueAt(totalPrice, i, 6);
+					JOptionPane.showMessageDialog(null, "Update Successfully");
+			    }
+			    else 
+			    {
+			    	JOptionPane.showMessageDialog(null, "Please Select a Row First!");
+			    }
+			}
+		});
+		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnUpdate.setBounds(260, 23, 94, 38);
+		panel_5.add(btnUpdate);
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setLayout(null);

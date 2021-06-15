@@ -123,6 +123,7 @@ public class Login extends JFrame {
 						UserInterface User = new UserInterface(); //calling another frame/window
 							User.setModalExclusionType(null);
 							User.setVisible(true);
+							dispose();
 					}
 					else if(UserNameTextField.getText().equals("B") && PasswordTextField.getText().equals("b")&& user.getSelectedItem().equals("Admin")) {
 						JOptionPane.showMessageDialog(null, "Login Succesful");
@@ -130,6 +131,7 @@ public class Login extends JFrame {
 						AdminInterface Admin = new AdminInterface(); //calling another frame/window
 							Admin.setModalExclusionType(null);
 							Admin.setVisible(true);
+							dispose();
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Please enter the right user name and pswd");
