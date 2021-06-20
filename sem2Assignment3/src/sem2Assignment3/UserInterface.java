@@ -43,6 +43,7 @@ public class UserInterface extends JFrame  {
 	private JTextField donateName;
 	private JTextField donateAmount;
 	private JTextArea textReceipt;
+	private double price=0;
 
 	/**
 	 * Launch the application.
@@ -270,11 +271,6 @@ public class UserInterface extends JFrame  {
 		lblEvent.setBounds(20, 136, 62, 14);
 		panel_4.add(lblEvent);
 		
-		JLabel lblPrice = new JLabel("Price");
-		lblPrice.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblPrice.setBounds(20, 177, 62, 14);
-		panel_4.add(lblPrice);
-		
 		name = new JTextField();
 		name.setFont(new Font("Tahoma", Font.BOLD, 11));
 		name.setColumns(10);
@@ -301,19 +297,13 @@ public class UserInterface extends JFrame  {
 		
 		JLabel lblQuantity = new JLabel("Quantity");
 		lblQuantity.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblQuantity.setBounds(20, 215, 62, 14);
+		lblQuantity.setBounds(20, 183, 62, 14);
 		panel_4.add(lblQuantity);
-		
-		JComboBox price = new JComboBox();
-		price.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", "3", "4", "5"}));
-		price.setFont(new Font("Tahoma", Font.BOLD, 11));
-		price.setBounds(98, 174, 129, 20);
-		panel_4.add(price);
 		
 		quantity = new JTextField();
 		quantity.setFont(new Font("Tahoma", Font.BOLD, 11));
 		quantity.setColumns(10);
-		quantity.setBounds(100, 212, 127, 20);
+		quantity.setBounds(100, 180, 127, 20);
 		panel_4.add(quantity);
 		
 		JPanel panel_5 = new JPanel();
@@ -327,16 +317,27 @@ public class UserInterface extends JFrame  {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel model = (DefaultTableModel) table.getModel();
+				
+				if(event.getSelectedItem().equals("World Book and Copyright Day")) {
+					price=3;
+				}
+				else if(event.getSelectedItem().equals("International Day of Families")) {
+					price=4;
+				}
+				else if(event.getSelectedItem().equals("International Day of Happiness")) {
+					price=5;
+				}
+				
 				Calculation cal = new Calculation();
-				double totalPrice=cal.totalPrice(Integer.parseInt( (String) price.getSelectedItem()), Integer.parseInt( quantity.getText()));
-				double discount=Integer.parseInt( (String) price.getSelectedItem())*Integer.parseInt( quantity.getText())-totalPrice;
+				double totalPrice=cal.totalPrice(price, Integer.parseInt( quantity.getText()));
+				double discount=(price*Integer.parseInt( quantity.getText()))-totalPrice;
 				
 				model.addRow(new Object[]{
 						name.getText(),
 						age.getText(),
 						gender.getSelectedItem(),
 						event.getSelectedItem(),
-						price.getSelectedItem(),
+						price,
 						quantity.getText(),	
 						discount,
 						totalPrice,
@@ -361,7 +362,6 @@ public class UserInterface extends JFrame  {
 				age.setText("");
 				gender.setSelectedItem("Make a selection");
 				event.setSelectedItem("Make a selection");
-				price.setSelectedItem("Make a selection");
 				quantity.setText("");		
 			}
 		});
@@ -454,7 +454,8 @@ public class UserInterface extends JFrame  {
 			public void actionPerformed(ActionEvent arg0) {
 				DefaultTableModel model = (DefaultTableModel)table.getModel();
 				Calculation cal = new Calculation();
-				double totalPrice=cal.totalPrice(Integer.parseInt( (String) price.getSelectedItem()), Integer.parseInt( quantity.getText()));
+				double totalPrice=cal.totalPrice(price, Integer.parseInt( quantity.getText()));
+				double discount = (price*Integer.parseInt(quantity.getText()))-totalPrice;
 				int i = table.getSelectedRow();
 			    if(i>=0) //if single row is selected than update
 			    {
@@ -462,9 +463,10 @@ public class UserInterface extends JFrame  {
 			    	model.setValueAt(age.getText(),i,1);
 			    	model.setValueAt(gender.getSelectedItem(),i,2);
 			    	model.setValueAt(event.getSelectedItem(),i,3);
-			    	model.setValueAt(price.getSelectedItem(),i,4);
+			    	model.setValueAt(price,i,4);
 			    	model.setValueAt(quantity.getText(),i,5);
-			    	model.setValueAt(totalPrice, i, 6);
+			    	model.setValueAt(discount, i, 6);
+			    	model.setValueAt(totalPrice, i, 7);
 					JOptionPane.showMessageDialog(null, "Update Successfully");
 			    }
 			    else 

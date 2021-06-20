@@ -26,8 +26,8 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField UserNameTextField;
-	private JTextField PasswordTextField;
 	private JComboBox user;
+	private JPasswordField PasswordTextField;
 
 	/**
 	 * Launch the application.
@@ -99,18 +99,6 @@ public class Login extends JFrame {
 		UserNameTextField.setBounds(642, 139, 243, 53);
 		panel.add(UserNameTextField);
 		UserNameTextField.setColumns(10);
-		
-		PasswordTextField = new JTextField();
-		PasswordTextField.setFont(new Font("Tahoma", Font.BOLD, 20));
-		PasswordTextField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String userPswd = "aby123";
-				PasswordTextField.setText(userPswd);
-			}
-		});
-		PasswordTextField.setColumns(10);
-		PasswordTextField.setBounds(642, 240, 243, 53);
-		panel.add(PasswordTextField);
 		
 		JButton LoginButton = new JButton("LOGIN");
 		LoginButton.addActionListener(new ActionListener() {
@@ -197,5 +185,9 @@ public class Login extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon(Login.class.getResource("/IMAGE/Capture.PNG")));
 		lblNewLabel_1.setBounds(0, 223, 391, 252);
 		panel_1.add(lblNewLabel_1);
+		
+		PasswordTextField = new JPasswordField();
+		PasswordTextField.setBounds(642, 240, 247, 53);
+		panel.add(PasswordTextField);
 	}
 }
