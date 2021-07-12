@@ -44,6 +44,10 @@ public class UserInterface extends JFrame  {
 	private JTextField donateAmount;
 	private JTextArea textReceipt;
 	private double price=0;
+	private JTextField teacherName;
+	private JTextField teacherAge;
+	private JTextField teacherEmail;
+	private JTable table1;
 
 	/**
 	 * Launch the application.
@@ -151,9 +155,9 @@ public class UserInterface extends JFrame  {
 		panel_8.add(lblAdvetisement);
 		
 		JTextArea txtrAbove = new JTextArea();
+		txtrAbove.setText("-------------------------------------------------\r\n*  Above 2 tickets price will be\r\n    RM 2 per Unit\t   \r\n*  Above 5 tickets will be RM 1.50 \t\t\t   \r\n   +10% discount                                                    \r\n-------------------------------------------------");
 		txtrAbove.setFont(new Font("Tekton Pro Ext", Font.PLAIN, 15));
 		txtrAbove.setBackground(new Color(240, 230, 140));
-		txtrAbove.setText("-------------------------------------------------\r\n*  Above 2 tickets price will be\r\n    RM 2 per Unit\t   \r\n*  Above 5 tickets will be RM 1.50 \t\t\t   \r\n   +10% discount                                                    \r\n-------------------------------------------------");
 		txtrAbove.setBounds(10, 35, 297, 120);
 		panel_8.add(txtrAbove);
 		
@@ -176,10 +180,10 @@ public class UserInterface extends JFrame  {
 		panel_10.add(label);
 		label.setFont(new Font("Tekton Pro", Font.BOLD, 50));
 		
-		JButton btnNewButton_3 = new JButton("Log Out");
+		JButton btnNewButton_3 = new JButton("Exit");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Login frame = new Login();
+				MainPage frame = new MainPage();
 				frame.setVisible(true);
 				dispose();
 			}
@@ -191,10 +195,10 @@ public class UserInterface extends JFrame  {
 		panel_10.add(btnNewButton_3);
 		
 		JTextArea txtrSolsIs = new JTextArea();
+		txtrSolsIs.setText("SOLS 24/7 is a leading in-person and online education\r\nprovider for the poor. Starting out as experts in \r\nteaching English to those with zero or very basic \r\nEnglish proficiency, we have since branched out \r\nto encompass Employable English skills for school,\r\nuniversity, business purposes as well as becoming a \r\njob preparation and digital education provider.");
 		txtrSolsIs.setFont(new Font("Tekton Pro Ext", Font.BOLD, 15));
 		txtrSolsIs.setForeground(new Color(255, 255, 255));
 		txtrSolsIs.setBackground(new Color(106, 90, 205));
-		txtrSolsIs.setText("SOLS 24/7 is a leading in-person and online education\r\nprovider for the poor. Starting out as experts in \r\nteaching English to those with zero or very basic \r\nEnglish proficiency, we have since branched out \r\nto encompass Employable English skills for school,\r\nuniversity, business purposes as well as becoming a \r\njob preparation and digital education provider.");
 		txtrSolsIs.setBounds(29, 122, 445, 146);
 		panel_1.add(txtrSolsIs);
 		
@@ -211,18 +215,18 @@ public class UserInterface extends JFrame  {
 		panel_1.add(lblNewLabel_1);
 		
 		JTextArea txtrSolsEnvisions = new JTextArea();
+		txtrSolsEnvisions.setText("SOLS 24/7 envisions that people\r\nfrom all communities \u2013 regardless\r\nof race, religion or gender \u2013 will \r\nhave access to education and \r\nsocial empowerment services, \r\nresulting in developed societies \r\nwith equal opportunities for all.");
 		txtrSolsEnvisions.setForeground(new Color(255, 255, 255));
 		txtrSolsEnvisions.setBackground(new Color(102, 205, 170));
 		txtrSolsEnvisions.setFont(new Font("Tekton Pro", Font.BOLD, 16));
-		txtrSolsEnvisions.setText("SOLS 24/7 envisions that people\r\nfrom all communities \u2013 regardless\r\nof race, religion or gender \u2013 will \r\nhave access to education and \r\nsocial empowerment services, \r\nresulting in developed societies \r\nwith equal opportunities for all.");
 		txtrSolsEnvisions.setBounds(29, 320, 217, 165);
 		panel_1.add(txtrSolsEnvisions);
 		
 		JTextArea txtrOurMissionIs = new JTextArea();
+		txtrOurMissionIs.setText("Our mission is to \r\nserve, educate &\r\nempower the \r\nbottom 40% of the\r\npopulation with \r\nFREE education, \r\npersonal development \r\n& employment support.");
 		txtrOurMissionIs.setForeground(new Color(255, 255, 255));
 		txtrOurMissionIs.setBackground(new Color(221, 160, 221));
 		txtrOurMissionIs.setFont(new Font("Tekton Pro", Font.BOLD, 15));
-		txtrOurMissionIs.setText("Our mission is to \r\nserve, educate &\r\nempower the \r\nbottom 40% of the\r\npopulation with \r\nFREE education, \r\npersonal development \r\n& employment support.");
 		txtrOurMissionIs.setBounds(287, 319, 187, 166);
 		panel_1.add(txtrOurMissionIs);
 		
@@ -284,7 +288,7 @@ public class UserInterface extends JFrame  {
 		panel_4.add(age);
 		
 		JComboBox gender = new JComboBox();
-		gender.setModel(new DefaultComboBoxModel(new String[] {"Make a selection","Male", "Female"}));
+		gender.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", "Male", "Female"}));
 		gender.setFont(new Font("Tahoma", Font.BOLD, 11));
 		gender.setBounds(98, 97, 129, 20);
 		panel_4.add(gender);
@@ -394,7 +398,7 @@ public class UserInterface extends JFrame  {
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame = new JFrame();
-				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Membership Registration System", 
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Event Registration System", 
 						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
 					System.exit(0);
 				}
@@ -539,6 +543,11 @@ public class UserInterface extends JFrame  {
 		btnNewButton.setFont(new Font("Tekton Pro Ext", Font.BOLD, 11));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textReceipt.append("===============\n");
+				textReceipt.append("____RECEIPT____\n");
+				textReceipt.append("===============\n");
+				textReceipt.append("Name  :   "+donateName.getText()+"\n");
+				textReceipt.append("Amount:   RM"+donateAmount.getText()+"\n");
 				JOptionPane.showMessageDialog(null, "Thank You For Your Donation");
 				
 			}
@@ -564,11 +573,12 @@ public class UserInterface extends JFrame  {
 		btnNewButton_2.setFont(new Font("Tekton Pro", Font.BOLD, 13));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				textReceipt.append("===============\n");
-				textReceipt.append("____RECEIPT____\n");
-				textReceipt.append("===============\n");
-				textReceipt.append("Name  :   "+donateName.getText()+"\n");
-				textReceipt.append("Amount:   RM"+donateAmount.getText()+"\n");
+				try {
+					textReceipt.print();
+				} catch (java.awt.print.PrinterException e1) {
+					System.err.format("No printer found", e1.getMessage());
+				}
+				
 			}
 		});
 		btnNewButton_2.setBounds(268, 364, 111, 23);
@@ -587,5 +597,262 @@ public class UserInterface extends JFrame  {
 		lblNewLabel_3.setIcon(new ImageIcon(UserInterface.class.getResource("/IMAGE/header_NGOhub-Campaign-Header.jpg")));
 		lblNewLabel_3.setBounds(21, 20, 822, 467);
 		panel_12.add(lblNewLabel_3);
+		
+		JPanel panel_9 = new JPanel();
+		tabbedPane.addTab("Teacher Registration", null, panel_9, null);
+		panel_9.setLayout(null);
+		
+		JPanel panel_13 = new JPanel();
+		panel_13.setLayout(null);
+		panel_13.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(255, 69, 0)));
+		panel_13.setBackground(new Color(255, 215, 0));
+		panel_13.setBounds(0, 0, 842, 508);
+		panel_9.add(panel_13);
+		
+		JPanel panel_14 = new JPanel();
+		panel_14.setLayout(null);
+		panel_14.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(255, 69, 0)));
+		panel_14.setBackground(new Color(240, 230, 140));
+		panel_14.setBounds(21, 27, 791, 73);
+		panel_13.add(panel_14);
+		
+		JLabel lblTeacherRegistrationSystem = new JLabel("Teacher Registration System");
+		lblTeacherRegistrationSystem.setFont(new Font("Tahoma", Font.BOLD, 45));
+		lblTeacherRegistrationSystem.setBounds(43, 11, 696, 51);
+		panel_14.add(lblTeacherRegistrationSystem);
+		
+		JPanel panel_15 = new JPanel();
+		panel_15.setLayout(null);
+		panel_15.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(255, 69, 0)));
+		panel_15.setBackground(new Color(240, 230, 140));
+		panel_15.setBounds(21, 111, 252, 276);
+		panel_13.add(panel_15);
+		
+		JLabel label_2 = new JLabel("Name");
+		label_2.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_2.setBounds(20, 30, 62, 14);
+		panel_15.add(label_2);
+		
+		JLabel label_3 = new JLabel("Age");
+		label_3.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_3.setBounds(20, 63, 62, 14);
+		panel_15.add(label_3);
+		
+		JLabel label_4 = new JLabel("Gender");
+		label_4.setFont(new Font("Tahoma", Font.BOLD, 11));
+		label_4.setBounds(20, 100, 62, 14);
+		panel_15.add(label_4);
+		
+		JLabel lblSubject = new JLabel("Subject");
+		lblSubject.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblSubject.setBounds(20, 136, 62, 14);
+		panel_15.add(lblSubject);
+		
+		teacherName = new JTextField();
+		teacherName.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teacherName.setColumns(10);
+		teacherName.setBounds(100, 27, 127, 20);
+		panel_15.add(teacherName);
+		
+		teacherAge = new JTextField();
+		teacherAge.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teacherAge.setColumns(10);
+		teacherAge.setBounds(100, 60, 127, 20);
+		panel_15.add(teacherAge);
+		
+		JComboBox teacherGender = new JComboBox();
+		teacherGender.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", "Female", "Male"}));
+		teacherGender.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teacherGender.setBounds(98, 97, 129, 20);
+		panel_15.add(teacherGender);
+		
+		JComboBox teacherSubject = new JComboBox();
+		teacherSubject.setModel(new DefaultComboBoxModel(new String[] {"Make a selection", "English", "Science", "Malay", "Chinese", "Computer", "Account"}));
+		teacherSubject.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teacherSubject.setBounds(98, 133, 129, 20);
+		panel_15.add(teacherSubject);
+		
+		JLabel lblEmail = new JLabel("Email");
+		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblEmail.setBounds(20, 183, 62, 14);
+		panel_15.add(lblEmail);
+		
+		teacherEmail = new JTextField();
+		teacherEmail.setFont(new Font("Tahoma", Font.BOLD, 11));
+		teacherEmail.setColumns(10);
+		teacherEmail.setBounds(100, 180, 127, 20);
+		panel_15.add(teacherEmail);
+		
+		JPanel panel_16 = new JPanel();
+		panel_16.setLayout(null);
+		panel_16.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(255, 69, 0)));
+		panel_16.setBackground(new Color(240, 230, 140));
+		panel_16.setBounds(21, 398, 791, 87);
+		panel_13.add(panel_16);
+		
+		JButton button_6 = new JButton("ADD RECORD");
+		button_6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model1 = (DefaultTableModel) table1.getModel();
+						
+				model1.addRow(new Object[]{
+						teacherName.getText(),
+						teacherAge.getText(),
+						teacherGender.getSelectedItem(),
+						teacherSubject.getSelectedItem(),
+						teacherEmail.getText(),		
+				});
+				
+				if (table1.getSelectedRow() == -1) {
+					if (table1.getRowCount() == 0) {
+						JOptionPane.showMessageDialog(null, "Event Update confirmed", "Event Management System",
+								JOptionPane.OK_OPTION);
+					}
+				}
+					
+			}
+		});
+		button_6.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_6.setBounds(10, 23, 135, 38);
+		panel_16.add(button_6);
+		
+		JButton button_7 = new JButton("RESET");
+		button_7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				teacherName.setText("");
+				teacherAge.setText("");
+				teacherGender.setSelectedItem("Make a selection");
+				teacherSubject.setSelectedItem("Make a selection");
+				teacherEmail.setText("");		
+			}
+		});
+		button_7.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_7.setBounds(155, 23, 94, 38);
+		panel_16.add(button_7);
+		
+		JButton button_8 = new JButton("DELETE");
+		button_8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model1 = (DefaultTableModel)table1.getModel();
+				if(table1.getSelectedRow()==-1) {
+					if(table1.getRowCount()==0) {
+						JOptionPane.showMessageDialog(null,"No data to delete",
+								"Event Management System", JOptionPane.OK_OPTION);
+					}else {
+						JOptionPane.showMessageDialog(null,"Select a row to delete",
+								"Event Management System", JOptionPane.OK_OPTION);
+					}
+				}else {
+					model1.removeRow(table1.getSelectedRow());
+				}
+			}
+		});
+		button_8.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_8.setBounds(468, 23, 94, 38);
+		panel_16.add(button_8);
+		
+		JButton button_9 = new JButton("EXIT");
+		button_9.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame = new JFrame();
+				if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit", "Teacher Registration System", 
+						JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
+					System.exit(0);
+				}
+			}
+		});
+		button_9.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_9.setBounds(687, 23, 94, 38);
+		panel_16.add(button_9);
+		
+		JButton button_10 = new JButton("PRINT");
+		button_10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					table1.print();
+				} catch (java.awt.print.PrinterException e1) {
+					System.err.format("No printer found", e1.getMessage());
+				}
+			
+			}
+		});
+		button_10.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_10.setBounds(364, 23, 94, 38);
+		panel_16.add(button_10);
+		
+		JButton button_11 = new JButton("UPLOAD");
+		button_11.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					File file = new File("D:\\SEM 2\\PROGRAMMING 2\\testing\\teacher.txt");
+					if(!file.exists()) {
+						file.createNewFile();
+						}
+					FileWriter fw = new FileWriter(file.getAbsoluteFile());
+					BufferedWriter bw = new BufferedWriter(fw);
+					
+					for (int i=0; i<table1.getRowCount(); i++) {
+						for (int j=0; j<table1.getColumnCount(); j++) {
+							bw.write(table1.getModel().getValueAt(i, j) + "  ");
+							}
+						bw.write("\n________\n");
+						}
+						bw.close();
+						fw.close();
+						JOptionPane.showMessageDialog(null, "Data Exported");
+					}
+					catch(Exception ex) {
+						ex.printStackTrace();
+					}
+			}
+		});
+		button_11.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_11.setBounds(572, 23, 105, 38);
+		panel_16.add(button_11);
+		
+		JButton button_12 = new JButton("UPDATE");
+		button_12.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DefaultTableModel model1 = (DefaultTableModel)table1.getModel();
+				int i = table1.getSelectedRow();
+			    if(i>=0) //if single row is selected than update
+			    {
+			    	model1.setValueAt(teacherName.getText(),i,0);
+			    	model1.setValueAt(teacherAge.getText(),i,1);
+			    	model1.setValueAt(teacherGender.getSelectedItem(),i,2);
+			    	model1.setValueAt(teacherSubject.getSelectedItem(),i,3);
+			    	model1.setValueAt(teacherEmail,i,4);
+					JOptionPane.showMessageDialog(null, "Update Successfully");
+			    }
+			    else 
+			    {
+			    	JOptionPane.showMessageDialog(null, "Please Select a Row First!");
+			    }
+			}
+		});
+		button_12.setFont(new Font("Tahoma", Font.BOLD, 14));
+		button_12.setBounds(260, 23, 94, 38);
+		panel_16.add(button_12);
+		
+		JPanel panel_17 = new JPanel();
+		panel_17.setLayout(null);
+		panel_17.setBorder(new MatteBorder(8, 8, 8, 8, (Color) new Color(255, 69, 0)));
+		panel_17.setBackground(new Color(176, 224, 230));
+		panel_17.setBounds(283, 111, 529, 276);
+		panel_13.add(panel_17);
+		
+		JScrollPane scrollPane_3 = new JScrollPane();
+		scrollPane_3.setBounds(10, 11, 509, 254);
+		panel_17.add(scrollPane_3);
+		
+		table1 = new JTable();
+		table1.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Name", "Age", "Gender", "Subject", "Email"
+			}
+		));
+		scrollPane_3.setViewportView(table1);
 	}
 }

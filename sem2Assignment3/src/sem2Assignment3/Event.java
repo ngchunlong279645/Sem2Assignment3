@@ -44,6 +44,7 @@ public class Event extends JFrame {
 	 * Create the frame.
 	 */
 	public Event() {
+		setTitle("Event Information");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 631, 333);
 		contentPane = new JPanel();

@@ -8,12 +8,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTabbedPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JToggleButton;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.border.MatteBorder;
@@ -323,5 +327,49 @@ public class AdminInterface extends JFrame {
 		month.setModel(new DefaultComboBoxModel(new String[] {"JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DISEMBER"}));
 		month.setBounds(237, 76, 122, 33);
 		panel_2.add(month);
+		
+		JButton btnUpload = new JButton("Upload");
+		btnUpload.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					File file = new File("D:\\SEM 2\\PROGRAMMING 2\\testing\\report.txt");
+					if(!file.exists()) {
+						file.createNewFile();
+						}
+					FileWriter fw = new FileWriter(file.getAbsoluteFile());
+					BufferedWriter bw = new BufferedWriter(fw);
+					
+							bw.write(report.getText());
+							
+						bw.write("\n________\n");
+						
+						bw.close();
+						fw.close();
+						JOptionPane.showMessageDialog(null, "Data Exported");
+					}
+					catch(Exception ex) {
+						ex.printStackTrace();
+					}
+			}
+		});
+		btnUpload.setFont(new Font("Tekton Pro", Font.BOLD, 25));
+		btnUpload.setBackground(new Color(152, 251, 152));
+		btnUpload.setBounds(466, 410, 112, 38);
+		panel_2.add(btnUpload);
+		
+		JButton btnPrint = new JButton("Print");
+		btnPrint.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					report.print();
+				} catch (java.awt.print.PrinterException e1) {
+					System.err.format("No printer found", e1.getMessage());
+				}
+			}
+		});
+		btnPrint.setFont(new Font("Tekton Pro", Font.BOLD, 25));
+		btnPrint.setBackground(new Color(152, 251, 152));
+		btnPrint.setBounds(610, 410, 112, 38);
+		panel_2.add(btnPrint);
 	}
 }

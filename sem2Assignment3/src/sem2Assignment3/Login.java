@@ -26,7 +26,6 @@ public class Login extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField UserNameTextField;
-	private JComboBox user;
 	private JPasswordField PasswordTextField;
 
 	/**
@@ -49,7 +48,7 @@ public class Login extends JFrame {
 	 * Create the frame.
 	 */
 	public Login() {
-		setTitle("VolunteerTeacherOrganisation");
+		setTitle("Admin Login Page");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 915, 514); //set for 0,0,1400,800
 		contentPane = new JPanel();
@@ -68,19 +67,19 @@ public class Login extends JFrame {
 		panel_1_2.setLayout(null);
 		panel_1_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
 		panel_1_2.setBackground(new Color(240, 230, 140));
-		panel_1_2.setBounds(401, 139, 214, 53);
+		panel_1_2.setBounds(401, 174, 214, 53);
 		panel.add(panel_1_2);
 		
 		JLabel UserNameLabel = new JLabel("User Name");
 		UserNameLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		UserNameLabel.setBounds(51, 11, 125, 31);
+		UserNameLabel.setBounds(50, 11, 125, 31);
 		panel_1_2.add(UserNameLabel);
 		
 		JPanel panel_1_3 = new JPanel();
 		panel_1_3.setLayout(null);
 		panel_1_3.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
 		panel_1_3.setBackground(new Color(240, 230, 140));
-		panel_1_3.setBounds(401, 240, 214, 53);
+		panel_1_3.setBounds(401, 274, 214, 53);
 		panel.add(panel_1_3);
 		
 		JLabel PasswordLabel = new JLabel("Password");
@@ -90,36 +89,21 @@ public class Login extends JFrame {
 		
 		UserNameTextField = new JTextField();
 		UserNameTextField.setFont(new Font("Tahoma", Font.BOLD, 20));
-		UserNameTextField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String userName = "Azman";
-				UserNameTextField.setText(userName);
-			}
-		});
-		UserNameTextField.setBounds(642, 139, 243, 53);
+		UserNameTextField.setBounds(638, 174, 243, 53);
 		panel.add(UserNameTextField);
 		UserNameTextField.setColumns(10);
 		
 		JButton LoginButton = new JButton("LOGIN");
 		LoginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					
-					if(UserNameTextField.getText().equals("A") && PasswordTextField.getText().equals("a")&& user.getSelectedItem().equals("User")) {
-						JOptionPane.showMessageDialog(null, "Login Succesful");
-						
-						UserInterface User = new UserInterface(); //calling another frame/window
-							User.setModalExclusionType(null);
-							User.setVisible(true);
-							dispose();
-					}
-					else if(UserNameTextField.getText().equals("B") && PasswordTextField.getText().equals("b")&& user.getSelectedItem().equals("Admin")) {
+				try {	
+					if(UserNameTextField.getText().equals("A") && PasswordTextField.getText().equals("a")) {
 						JOptionPane.showMessageDialog(null, "Login Succesful");
 						
 						AdminInterface Admin = new AdminInterface(); //calling another frame/window
-							Admin.setModalExclusionType(null);
-							Admin.setVisible(true);
-							dispose();
+						Admin.setModalExclusionType(null);
+						Admin.setVisible(true);
+						dispose();
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Please enter the right user name and pswd");
@@ -145,27 +129,8 @@ public class Login extends JFrame {
 		ResetButton.setBounds(439, 401, 187, 53);
 		panel.add(ResetButton);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBorder(new MatteBorder(6, 6, 6, 6, (Color) new Color(255, 140, 0)));
-		panel_2.setBackground(new Color(240, 230, 140));
-		panel_2.setBounds(401, 318, 214, 53);
-		panel.add(panel_2);
-		
-		JLabel lblSelectUserType = new JLabel("Select User Type");
-		lblSelectUserType.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblSelectUserType.setBounds(10, 11, 194, 31);
-		panel_2.add(lblSelectUserType);
-		
-		user = new JComboBox();
-		user.setFont(new Font("Tekton Pro", Font.BOLD, 20));
-		user.setModel(new DefaultComboBoxModel(new String[] {"Admin", "User"}));
-		user.setToolTipText("");
-		user.setBounds(642, 318, 243, 53);
-		panel.add(user);
-		
 		JLabel TitleLabel = new JLabel("SOL 24/7\r\n ORGANISATION");
-		TitleLabel.setBounds(417, 40, 468, 59);
+		TitleLabel.setBounds(417, 66, 468, 59);
 		panel.add(TitleLabel);
 		TitleLabel.setForeground(new Color(255, 255, 255));
 		TitleLabel.setFont(new Font("Tekton Pro", Font.BOLD, 40));
@@ -187,7 +152,21 @@ public class Login extends JFrame {
 		panel_1.add(lblNewLabel_1);
 		
 		PasswordTextField = new JPasswordField();
-		PasswordTextField.setBounds(642, 240, 247, 53);
+		PasswordTextField.setBounds(638, 274, 247, 53);
 		panel.add(PasswordTextField);
+		
+		JButton button = new JButton("Exit");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainPage frame = new MainPage();
+				frame.setVisible(true);
+				dispose();
+			}
+		});
+		button.setForeground(Color.WHITE);
+		button.setFont(new Font("Tekton Pro", Font.BOLD, 15));
+		button.setBackground(new Color(250, 128, 114));
+		button.setBounds(792, 32, 89, 23);
+		panel.add(button);
 	}
 }
